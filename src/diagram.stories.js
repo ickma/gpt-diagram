@@ -1,10 +1,8 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
-
-import Mermaid from "./mermaid";
+import DiagramWithExporters from "./diagram";
 
 const defaultProps = {
-  chart: `
+  code: `
     graph TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -15,7 +13,7 @@ const defaultProps = {
 
 export default {
   title: "Mermaid",
-  component: Mermaid,
+  component: DiagramWithExporters,
 };
 
-export const Default = () => <Mermaid {...defaultProps} />;
+export const Default = () => <DiagramWithExporters {...defaultProps} />;
