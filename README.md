@@ -15,6 +15,8 @@ To run the ChatGPT Diagram Creator, you will need to set up your environment by 
 
 You can generate a diagram by inputting either a natural language description of the chart you want,
  or  just provide a part of a document into the tool. The GPT language model will understand your request and generate a diagram accordingly. If the model fails to understand your request or determine that it is not related to a diagram, it will let you know.
+ ![image](https://github.com/ickma/gpt-diagram/assets/9997461/4e4856fe-22f7-4b9f-8da8-326cb0cbbe52)
+
 
 # Limitations
 
