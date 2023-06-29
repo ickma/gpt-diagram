@@ -39,7 +39,7 @@ const MainPage = () => {
           result.response
         );
         const newMessageListWithAIMessage = [...newMessageList];
-        newMessageList.pop();
+        newMessageListWithAIMessage.pop();
         newMessageListWithAIMessage.push({
           sender: "AI",
           message: AIMessage,
