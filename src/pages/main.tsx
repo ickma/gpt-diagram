@@ -22,21 +22,35 @@ const MainPage = () => {
       message,
       timestamp: Math.floor(Date.now() / 1000),
     });
-    setMessageList(newMessageList);
-    const response = await chain.call({ input: message });
-    const result = JSON.parse(response.response);
-    const AIMessage = result.diagram ? (
-      <Diagram code={result.diagram} />
-    ) : (
-      result.response
-    );
-    const newMessageListWithAIMessage = [...newMessageList];
-    newMessageListWithAIMessage.push({
+    newMessageList.push({
       sender: "AI",
-      message: AIMessage,
+      message: "I am thinking...",
       timestamp: Math.floor(Date.now() / 1000),
     });
-    setMessageList(newMessageListWithAIMessage);
+    setMessageList(newMessageList);
+    for (let i = 0; i < 5; i++) {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const response = await chain.call({ input: message });
+        const result = JSON.parse(response.response);
+        const AIMessage = result.diagram ? (
+          <Diagram code={result.diagram} />
+        ) : (
+          result.response
+        );
+        const newMessageListWithAIMessage = [...newMessageList];
+        newMessageList.pop();
+        newMessageListWithAIMessage.push({
+          sender: "AI",
+          message: AIMessage,
+          timestamp: Math.floor(Date.now() / 1000),
+        });
+        setMessageList(newMessageListWithAIMessage);
+        break;
+      } catch (e) {
+        console.log(e);
+      }
+    }
   };
 
   return (
@@ -50,7 +64,15 @@ const MainPage = () => {
         overflow: "hidden",
       }}
     >
-      <Box sx={{ flexGrow: 1, overflowY: "auto" }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          overflowY: "auto",
+          maxHeight: "75%",
+          height: "100%",
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+        }}
+      >
         <MessageList messages={messageList} />
       </Box>
       <Box sx={{ mt: 2 }}>
