@@ -14,8 +14,6 @@ const parser = StructuredOutputParser.fromNamesAndDescriptions({
 });
 const formatInstructions = parser.getFormatInstructions();
 
-
-
 const PROMPT_TEMPLATE = `
 {format_instructions}
 Current conversation:
@@ -35,11 +33,17 @@ const chatPrompt = new PromptTemplate({
   partialVariables: { format_instructions: formatInstructions },
 });
 
-
 export const makeChain = () => {
   return new ConversationChain({
-    memory: new BufferMemory({ returnMessages: true, memoryKey: "chat_history" }),
+    memory: new BufferMemory({
+      returnMessages: true,
+      memoryKey: "chat_history",
+    }),
     prompt: chatPrompt,
-    llm: new ChatOpenAI({ modelName:'gpt-3.5-turbo',temperature: 0.1,openAIApiKey:process.env.REACT_APP_OPENAI_API_KEY }),
+    llm: new ChatOpenAI({
+      modelName: process.env.REACT_APP_MODEL || "gpt-3.5-turbo",
+      temperature: 0.1,
+      openAIApiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    }),
   });
 };
