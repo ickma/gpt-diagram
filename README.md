@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# What is it?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The ChatGPT Diagram Creator is a project that utilizes OpenAI's GPT language model to automatically generate diagrams based on natural language descriptions or text. This tool is designed for engineers or anyone who needs to create diagrams quickly and easily.
 
-## Available Scripts
+# How do I run it?
 
-In the project directory, you can run:
+To run the ChatGPT Diagram Creator, you will need to set up your environment by following these steps:
 
-### `npm start`
++ Set your OpenAI API key as an environment variable using the following command: 
+`export REACT_APP_OPENAI_API_KEY=YOUR_API_KEY(required)`
++ (Optional) Set the GPT model you want to use by setting another environment variable REACT_APP_MODEL with the name of the model. If not specified, the default model gpt-3.5 will be used.
++ Run the project using `yarn start`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# How do I generate a diagram?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can generate a diagram by inputting either a natural language description of the chart you want,
+ or  just provide a part of a document into the tool. The GPT language model will understand your request and generate a diagram accordingly. If the model fails to understand your request or determine that it is not related to a diagram, it will let you know.
 
-### `npm test`
+# Limitations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Please note that this project is still in its early stages, and there are lots of limitations to be aware of:
 
-### `npm run build`
++ The generated diagram is not editable.
++ There is currently no way to save the diagram locally or to cloud storage.
++ Conversation history is not enabled yet, but will be added soon to improve AI understanding of context.
++ The UI is very basic at present and may be improved over time.
++ The GPT3.5 model may make mistakes when generating diagrams, but detailed prompts can help minimize errors. Further testing with newer models like GPT4 will be conducted in the future.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Acknowledgments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is built on top of the following open source libraries:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ [Langchain](https://github.com/hwchase17/langchainjs)
++ [Mermaid](https://github.com/mermaid-js/mermaid)
++ React
++ OpenAI
